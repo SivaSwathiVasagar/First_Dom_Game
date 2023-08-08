@@ -1,0 +1,95 @@
+*{ 
+    box-sizing: border-box;
+   
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(#e6ccb2,#6a040f);
+    /* background: rgb(56, 49, 49); */
+}
+.Heading  {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik Wet Paint', cursive;
+    color: #ff9f1c;
+    text-align: center;
+    font-size: 4em;
+}
+.Game-info{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik Wet Paint', cursive;
+    color: beige;
+    font-size: 2em;
+
+}
+.Game-info-details{
+    grid-column: 1/5;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.Game-container{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 10px;
+    margin: 50px;
+    justify-content: center;
+    perspective: 500px;
+    
+}
+.card{
+    position: relative;
+    height: 165px;
+    width: 145px;
+    border-radius: 12px;
+    /* background:radial-gradient(#9d0208,#9d0208,#ff9f1c,#9d0208,#9d0208); */
+    background:radial-gradient(#ff9f1c,#9d0208);
+    /* background: radial-gradient(#e85d04,#9d0208); */
+}
+.card:hover .card-back{
+    transform: rotateY(-180deg); 
+}
+  
+.card:hover .card-front{
+    transform: rotateY(0); 
+}
+.card-face{
+    position: absolute;
+    width: 100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    border-width: 2px;
+    border-style: dashed;
+    transition: transform 300ms ease-in-out;
+}
+.card-front{
+    transform: rotateX(180deg);
+    background-color: black;
+}
+.user-visible-image{
+    align-self: flex-start;
+    height: 185px;
+    width: 145px;
+    transform: translateY(-35px);
+    transition: 70ms ease-in-out;
+}
+.user-hidden-image{
+    align-self: flex-start;
+    height: 165px;
+    width: 145px;
+    transform: scale(.9);
+}
+
+.card-front:hover .user-hidden-image{
+    transform: scale(1);
+}
+
+.card-back:hover .user-visible-image{
+    transform: translateY(0);
+}
