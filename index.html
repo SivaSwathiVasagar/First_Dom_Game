@@ -10,28 +10,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Rubik+Wet+Paint&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet"/>
     <title>Dom-Game</title>
+    <link rel="icon" type="image/x-icon" href="https://img.freepik.com/premium-vector/halloween-pumpkin-with-witch-hat-cartoon-illustration_339032-1315.jpg">
   </head>
   <body>
     <h1 class="heading">Memorize -- && -- Match</h1>
-    <div id ="start" class="overlay-text visible">Start</div>
+    <!-- <div class="game-info-highScore">High Score :<span id="highscore">0</span></div> -->
+    <div id ="start" class="overlay-text ">Start</div>
     <div id = "game-over" class="overlay-text ">Game Over<span class = "overlay-text-small">Restart</span></div>
     <div id = "victory-screen" class="overlay-text">You WIN<span class = "overlay-text-small">Restart</span></div>
     <div class="game-container">
       <div class="game-info-details">
-        <div class="game-info">Time : <span id="time-left">120 </span></div>
-        <div class="game-info">Flips :<span id="time-left">0</span></div>
-        <div class="game-info">Score :<span id="time-left">0</span></div>
+        <div class="game-info">Time : <span id="time-left">120</span></div>
+        <div class="game-info">Flips :<span id="flips">0</span></div>
+        <div class="game-info">Score :<span id="score">0</span></div>
+        <div class="game-info-highScore">High Score :<span id="highScore">0</span></div>
       </div>
-      <div class="card" data-value="1">
+      <!-- <div class="game-container"></div> -->
+      <div class="card" >
         <div class="card-back card-face">
           <img class="user-visible-image" src="Images/spider web black.png"  />
         </div>
         <div class="card-front card-face">
           <img
             class="user-hidden-image " data-value="1"
+            src="https://i0.wp.com/www.celebrating-halloween.com/wp-content/uploads/2014/09/spooky-bat-pumpkin-carving-pattern.jpg"/>
+        </div>
+      </div>
+      <div class="card" >
+        <div class="card-back card-face">
+          <img class="user-visible-image" src="Images/spider web black.png" />
+        </div>
+        <div class="card-front card-face">
+          <img
+            class="user-hidden-image" data-value="1"
             src="https://i0.wp.com/www.celebrating-halloween.com/wp-content/uploads/2014/09/spooky-bat-pumpkin-carving-pattern.jpg"/>
         </div>
       </div>
@@ -51,100 +64,101 @@
           </div>
           <div class="card-front card-face">
             <img
-              class="user-hidden-image" data-value="3"
-              src="https://www.rd.com/wp-content/uploads/2021/08/GettyImages-919955384.jpg"/>
-          </div>
-      </div>
-      <div class="card">
-        <div class="card-back card-face">
-            <img class="user-visible-image" src="Images/spider web black.png" />
-          </div>
-          <div class="card-front card-face">
-            <img
-              class="user-hidden-image" data-value="4"
-              src="https://c4.wallpaperflare.com/wallpaper/44/210/409/trees-vector-vector-pumpkin-wallpaper-preview.jpg"/>
-          </div>
-      </div>
-      <div class="card">
-        <div class="card-back card-face">
-            <img class="user-visible-image" src="Images/spider web black.png" />
-          </div>
-          <div class="card-front card-face">
-            <img
-              class="user-hidden-image" data-value="5"
-              src="https://w0.peakpx.com/wallpaper/284/852/HD-wallpaper-halloween-bat-halloween-celebrations-holidays-pumpkin-bat.jpg"/>
-          </div>
-      </div>
-      <div class="card">
-        <div class="card-back card-face">
-            <img class="user-visible-image" src="Images/spider web black.png" />
-          </div>
-          <div class="card-front card-face">
-            <img
-              class="user-hidden-image" data-value="5"
-              src="https://w0.peakpx.com/wallpaper/284/852/HD-wallpaper-halloween-bat-halloween-celebrations-holidays-pumpkin-bat.jpg"/>
-          </div>
-      </div>
-      <div class="card">
-        <div class="card-back card-face">
-            <img class="user-visible-image" src="Images/spider web black.png" />
-          </div>
-          <div class="card-front card-face">
-            <img
-              class="user-hidden-image" data-value="4"
-              src="https://c4.wallpaperflare.com/wallpaper/44/210/409/trees-vector-vector-pumpkin-wallpaper-preview.jpg"/>
-          </div>
-      </div>
-      <div class="card" data-value="1">
-        <div class="card-back card-face">
-          <img class="user-visible-image" src="Images/spider web black.png" />
-        </div>
-        <div class="card-front card-face">
-          <img
-            class="user-hidden-image" data-value="1"
-            src="https://i0.wp.com/www.celebrating-halloween.com/wp-content/uploads/2014/09/spooky-bat-pumpkin-carving-pattern.jpg"/>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-back card-face">
-            <img class="user-visible-image" src="Images/spider web black.png" />
-          </div>
-          <div class="card-front card-face">
-            <img
-              class="user-hidden-image" data-value="6"
-              src="Images/Image2.png"/>
-          </div>
-      </div>
-      <div class="card">
-        <div class="card-back card-face">
-            <img class="user-visible-image" src="Images/spider web black.png" />
-          </div>
-          <div class="card-front card-face">
-            <img
-              class="user-hidden-image" data-value="3"
-              src="https://www.rd.com/wp-content/uploads/2021/08/GettyImages-919955384.jpg"/>
-          </div>
-      </div>
-      <div class="card">
-        <div class="card-back card-face">
-            <img class="user-visible-image" src="Images/spider web black.png" />
-          </div>
-          <div class="card-front card-face">
-            <img
-              class="user-hidden-image" data-value="6"
-              src="Images/Image2.png"/>
-          </div>
-      </div>
-      <div class="card">
-        <div class="card-back card-face">
-            <img class="user-visible-image" src="Images/spider web black.png" />
-          </div>
-          <div class="card-front card-face">
-            <img
               class="user-hidden-image" data-value="2"
               src="https://freerangestock.com/sample/51407/bats-halloween-means-trick-or-treat-and-pumpkin.jpg"/>
           </div>
       </div>
+      <div class="card">
+        <div class="card-back card-face">
+            <img class="user-visible-image" src="Images/spider web black.png" />
+          </div>
+          <div class="card-front card-face">
+            <img
+              class="user-hidden-image" data-value="3"
+              src="https://www.rd.com/wp-content/uploads/2021/08/GettyImages-919955384.jpg"/>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+            <img class="user-visible-image" src="Images/spider web black.png" />
+          </div>
+          <div class="card-front card-face">
+            <img
+              class="user-hidden-image" data-value="3"
+              src="https://www.rd.com/wp-content/uploads/2021/08/GettyImages-919955384.jpg"/>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+            <img class="user-visible-image" src="Images/spider web black.png" />
+          </div>
+          <div class="card-front card-face">
+            <img
+              class="user-hidden-image" data-value="4"
+              src="https://c4.wallpaperflare.com/wallpaper/44/210/409/trees-vector-vector-pumpkin-wallpaper-preview.jpg"/>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+            <img class="user-visible-image" src="Images/spider web black.png" />
+          </div>
+          <div class="card-front card-face">
+            <img
+              class="user-hidden-image" data-value="4"
+              src="https://c4.wallpaperflare.com/wallpaper/44/210/409/trees-vector-vector-pumpkin-wallpaper-preview.jpg"/>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+            <img class="user-visible-image" src="Images/spider web black.png" />
+          </div>
+          <div class="card-front card-face">
+            <img
+              class="user-hidden-image" data-value="5"
+              src="https://w0.peakpx.com/wallpaper/284/852/HD-wallpaper-halloween-bat-halloween-celebrations-holidays-pumpkin-bat.jpg"/>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+            <img class="user-visible-image" src="Images/spider web black.png" />
+          </div>
+          <div class="card-front card-face">
+            <img
+              class="user-hidden-image" data-value="5"
+              src="https://w0.peakpx.com/wallpaper/284/852/HD-wallpaper-halloween-bat-halloween-celebrations-holidays-pumpkin-bat.jpg"/>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+            <img class="user-visible-image" src="Images/spider web black.png" />
+          </div>
+          <div class="card-front card-face">
+            <img
+              class="user-hidden-image" data-value="6"
+              src="Images/Image2.png"/>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+            <img class="user-visible-image" src="Images/spider web black.png" />
+          </div>
+          <div class="card-front card-face">
+            <img
+              class="user-hidden-image" data-value="6"
+              src="Images/Image2.png"/>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+            <img class="user-visible-image" src="Images/spider web black.png" />
+          </div>
+          <div class="card-front card-face">
+            <img
+              class="user-hidden-image" data-value="7"
+              src="https://i.ebayimg.com/images/g/l58AAOSw5phkiZS6/s-l1600.jpg"/>
+          </div>
+      </div>
+      
       <div class="card">
         <div class="card-back card-face">
             <img class="user-visible-image" src="Images/spider web black.png" />
@@ -163,16 +177,6 @@
             <img
               class="user-hidden-image" data-value="8"
               src="https://www.digsdigs.com/photos/2009/10/100-halloween-pumpkin-carving-ideas-13.jpg"/>
-          </div>
-      </div>
-      <div class="card">
-        <div class="card-back card-face">
-            <img class="user-visible-image" src="Images/spider web black.png" />
-          </div>
-          <div class="card-front card-face">
-            <img
-              class="user-hidden-image" data-value="7"
-              src="https://i.ebayimg.com/images/g/l58AAOSw5phkiZS6/s-l1600.jpg"/>
           </div>
       </div>
       <div class="card">
