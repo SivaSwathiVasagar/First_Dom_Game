@@ -14,18 +14,25 @@ body{
     text-align: center;
     font-size: 4em;
 }
+.game-info-highScore {
+    font-family: 'Rubik Wet Paint', cursive;
+    font-size: 2em;
+    color:#d4d700;
+}
 .game-info{
     font-family: 'Rubik Wet Paint', cursive;
     color: beige;
     font-size: 2em;
-
 }
 
 .game-info-details{
     grid-column: 1/5;
     display: flex;
-    justify-content: space-between;
+    /* display: grid; */
+    justify-content: space-around;
     margin-bottom: 20px;
+    top: 50px;
+    left: 10px;
 }
 
 .game-container{
@@ -58,11 +65,11 @@ body{
     background:radial-gradient(#ff9f1c,#9d0208);
     /* background: radial-gradient(#e85d04,#9d0208); */
 }
-.card:hover .card-back{
+.card.visible .card-back{
     transform: rotateY(-180deg); 
 }
   
-.card:hover .card-front{
+.card.visible .card-front{
     transform: rotateY(0); 
 }
 
@@ -76,10 +83,10 @@ body{
         transform: rotate(0);
     }
     25%{
-        transform: rotate(-40deg);
+        transform: rotate(-10deg);
     }
     75%{
-        transform: rotate(40deg);
+        transform: rotate(10deg);
     }
 }
 
@@ -154,7 +161,7 @@ body{
     align-self: flex-start;
     height: 165px;
     width: 145px;
-    transform: scale(.5);
+    transform: scale(.8);
     transition: 100ms ease-in-out;
     position: relative;
 }
@@ -170,5 +177,8 @@ body{
 @media (max-width: 600px) {
     .game-container {
         grid-template-columns: repeat(2, auto);
+    }
+    .game-info-details {
+        grid-template-columns: repeat(1, auto);
     }
 }
