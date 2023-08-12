@@ -65,6 +65,7 @@ body{
     cursor: not-allowed;
 }
 
+
 .card.matched.disable .user-hidden-image{
     animation: dance 1s linear infinite 500ms;
     pointer-events: none;
@@ -101,7 +102,7 @@ body{
 .overlay-text.visible {
     display: flex;
     flex-direction: column;
-    cursor: -webkit-grab; cursor: ;
+    cursor: -webkit-grab; cursor: grab;
     animation: overlay-grow 700ms forwards;
 }
 
