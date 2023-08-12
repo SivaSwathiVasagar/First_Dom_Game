@@ -37,7 +37,6 @@ class MixMatch {
     this.cardsArray = cards;
     this.totalTime = totalTime
     this.timeRemaining = totalTime;
-    // this.score = parseInt(this.addScore.textContent, 10);
     this.score = 0;
     this.highScore = 0;
     
@@ -51,7 +50,8 @@ class MixMatch {
   startGame() {
     this.cardsToCheck = null;
     this.totalClicks = 0;
-    this.addScore.innerText = 0;
+    this.score = 0;
+    this.addScore.innerText = this.score;
     this.addHighScore.innerText = this.highScore;
     this.timeRemaining = this.totalTime;
     this.matchedCardsArray = [];
@@ -61,7 +61,6 @@ class MixMatch {
      setTimeout(() =>{
         this.shuffleCards(this.cardsArray);
         this.countDown = this.startCountDown();
-        
         this.busy = false; 
      },500);
      this.hideCards();
@@ -73,6 +72,7 @@ class MixMatch {
     this.cardsArray.forEach(card => {
         card.classList.remove("visible");
         card.classList.remove("matched");
+        card.classList.remove("disable");
     });
   }
 
@@ -83,6 +83,10 @@ class MixMatch {
             this.totalClicks++;
             this.flipsCount.innerText = this.totalClicks;
             card.classList.add("visible");
+            if (!card.classList.contains("disable")) {
+                card.addEventListener("click", () => {
+                card.classList.add('disable');
+            });
         }
         if(this.cardsToCheck){
             this.checkForCardMatch(card);
@@ -90,7 +94,9 @@ class MixMatch {
         else{
             this.cardsToCheck = card;
         }
+    }
   }
+
   checkForCardMatch(card){
     if(this.getCardType(card) === this.getCardType(this.cardsToCheck)){
         this.cardMatch(card, this.cardsToCheck);
@@ -100,13 +106,17 @@ class MixMatch {
     }
     this.cardsToCheck = null;
   }
+
   cardMatch(card1, card2){
     this.matchedCardsArray.push(card1);
     this.matchedCardsArray.push(card2);
     card1.classList.add("matched");
     card2.classList.add("matched");
+    card1.classList.add("disable");
+    card2.classList.add("disable");
+
     this.audioMusic.match();
-    if(card1.classList.contains("matched") === card2.classList.contains("matched")){
+    if(card1.classList.contains("matched.disable") === card2.classList.contains("matched.disable")){
       this.score = this.score + 10;
       this.addScore.innerText = this.score;
       if(this.score > this.highScore){
@@ -118,23 +128,25 @@ class MixMatch {
         this.victory();
     }
  }
+
   cardMisMatch(card1, card2){
     this.busy = true;
+
     setTimeout(() => {
         card1.classList.remove('visible');
+        card1.classList.remove('disable');
+        
         card2.classList.remove('visible');
+        card2.classList.remove('disable');
         this.busy = false;
     }, 1000);
  }
 
   getCardType(card){
-    // console.log( card.getElementsByClassName("user-hidden-image")[0].src);
-    // return ( card.getElementsByClassName("user-hidden-image")[0].src);
-
     const hiddenImage = card.querySelector(".user-hidden-image");
-    // console.log(hiddenImage.getAttribute("data-value"));
     return(hiddenImage.getAttribute("data-value"));
   }
+
   flipCardRules(card){
     return (
       !this.busy &&
@@ -142,6 +154,7 @@ class MixMatch {
       card != this.cardsToCheck
     );
   }
+
   shuffleCards(){
     for(let i = this.cardsArray.length-1; i > 0; i--){
         let shufflingIndex = Math.floor(Math.random() * (i +1));
@@ -167,7 +180,6 @@ class MixMatch {
   }
 
   victory(){
-    
     clearInterval(this.countDown);
     this.audioMusic.victory();
     document.getElementById("victory-screen").classList.add("visible");
@@ -184,7 +196,7 @@ if (document.readyState == "loading") {
 function ready() {
     let overlayScreen = Array.from(document.getElementsByClassName("overlay-text"));
     let cards = Array.from(document.getElementsByClassName("card"));
-    let game = new MixMatch(80, cards);
+    let game = new MixMatch(40, cards);
   
     overlayScreen.forEach((overlay) => {
       overlay.addEventListener("click", () => {
@@ -199,13 +211,3 @@ function ready() {
       });
     });
   }
-
-
-
-
-  ﻿
-//   13
-//   script.js:99 Uncaught TypeError: Cannot read properties of undefined (reading 'classList')
-//       at MixMatch.cardMatch (script.js:99:11)
-//       at MixMatch.flipCard (script.js:81:18)
-//       at HTMLDivElement.<anonymous> (script.js:171:14)
