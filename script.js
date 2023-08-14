@@ -196,7 +196,7 @@ if (document.readyState == "loading") {
 function ready() {
     let overlayScreen = Array.from(document.getElementsByClassName("overlay-text"));
     let cards = Array.from(document.getElementsByClassName("card"));
-    let game = new MixMatch(40, cards);
+    let game = new MixMatch(80, cards);
   
     overlayScreen.forEach((overlay) => {
       overlay.addEventListener("click", () => {
