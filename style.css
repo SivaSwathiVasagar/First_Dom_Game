@@ -10,8 +10,7 @@ body{
     background-image: url(Images/Bg.png);
     position: relative;
     background-size: cover;
-    background-position: center;
-    
+    background-position: center; 
 }
 .heading  {
     color: #ff9f1c;
@@ -100,7 +99,6 @@ body{
     z-index: 10;
     font-family: 'Rubik Wet Paint','Roboto', cursive;
     color: #b1652b;
-
 }
 
 .overlay-text.visible {
@@ -171,12 +169,36 @@ body{
     transform: translateY(0);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .game-container {
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: repeat(4, auto);
     }
     .game-info-details {
-       flex-direction: column;
-       align-items: center;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.8em;
+     }
+    .card {
+        height: 100px;
+        width: 100px;
+        border-radius: 12px;
+        margin-bottom: 2%; 
     }
+    .user-visible-image {
+        height: 90px;
+        width: 80px;
+    }
+    .user-hidden-image {
+        height: 90px;
+        width: 80px;
+    }
+    .heading {
+        font-size: 2.5em;
+    }
+    @keyframes overlay-grow {
+        to {
+            background-color: rgba(0, 0, 0, .85);
+            font-size: 4em; 
+           }
+    }  
 }
